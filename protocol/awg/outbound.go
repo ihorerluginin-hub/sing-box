@@ -42,10 +42,10 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 		localAddresses: options.LocalAddress,
 	}
 	outboundDialer, err := dialer.NewWithOptions(dialer.Options{
-		Context:           ctx,
-		Options:           options.DialerOptions,
-		RemoteIsDomain:    options.ServerIsDomain(),
-		ResolverOnDetour:  true,
+		Context:          ctx,
+		Options:          options.DialerOptions,
+		RemoteIsDomain:   options.ServerIsDomain(),
+		ResolverOnDetour: true,
 	})
 	if err != nil {
 		return nil, err

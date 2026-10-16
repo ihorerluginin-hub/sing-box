@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/netip"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/amnezia-vpn/amneziawg-go/v3/conn"
@@ -162,7 +163,7 @@ func (options EndpointOptions) buildAWGIpcLines() string {
 
 	// Подписи из тегов <b 0x..>, <r N>, <rd N>, <rc N>, <t>.
 	for index, signature := range options.Signature {
-		addString("i"+F.ToString(index+1), signature)
+		addString("i"+strconv.Itoa(index+1), signature)
 	}
 
 	addString("header_protection_key", options.HeaderProtectionKey)
