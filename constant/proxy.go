@@ -15,6 +15,7 @@ const (
 	TypeTrojan       = "trojan"
 	TypeNaive        = "naive"
 	TypeWireGuard    = "wireguard"
+	TypeAWG          = "awg"
 	TypeHysteria     = "hysteria"
 	TypeTor          = "tor"
 	TypeSSH          = "ssh"
@@ -65,6 +66,8 @@ func ProxyDisplayName(proxyType string) string {
 		return "Naive"
 	case TypeWireGuard:
 		return "WireGuard"
+	case TypeAWG:
+		return "AmneziaWG"
 	case TypeHysteria:
 		return "Hysteria"
 	case TypeTor:

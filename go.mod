@@ -1,8 +1,11 @@
 module github.com/sagernet/sing-box
 
-go 1.23.1
+// Поднято с 1.23.1: пакет transport/awg тянет amneziawg-go, а тот
+// требует go >= 1.25.0.
+go 1.25.0
 
 require (
+	github.com/amnezia-vpn/amneziawg-go/v3 v3.1.20260828
 	github.com/anytls/sing-anytls v0.0.11
 	github.com/caddyserver/certmagic v0.23.0
 	github.com/coder/websocket v1.8.13
