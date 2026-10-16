@@ -4,6 +4,7 @@ import (
 	"context"
 	"net"
 	"net/netip"
+	"time"
 
 	"github.com/sagernet/sing-box/adapter"
 	"github.com/sagernet/sing-box/adapter/outbound"
@@ -69,7 +70,7 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 		MTU:        options.MTU,
 		Address:    options.LocalAddress,
 		PrivateKey: options.PrivateKey,
-		UDPTimeout: options.UDPTimeout.Duration,
+		UDPTimeout: time.Duration(options.UDPTimeout),
 		ResolvePeer: func(domain string) (netip.Addr, error) {
 			endpointAddresses, lookupErr := outbound.dnsRouter.Lookup(ctx, domain, outboundDialer.(dialer.ResolveDialer).QueryOptions())
 			if lookupErr != nil {
