@@ -23,6 +23,11 @@ type AWGOutboundOptions struct {
 	MTU           uint32                           `json:"mtu,omitempty"`
 	UDPTimeout    badoption.Duration               `json:"udp_timeout,omitempty"`
 
+	// PersistentKeepaliveInterval в секундах. В конфигурации AWG поле
+	// называется PersistentKeepalive и принимает диапазон, но одиночное
+	// число тоже допустимый диапазон, поэтому здесь обычное целое.
+	PersistentKeepaliveInterval uint16 `json:"persistent_keepalive_interval,omitempty"`
+
 	// Мусорные пакеты, отправляются перед каждым хендшейком.
 	// По документации amneziawg-go менять их на сервере не нужно,
 	// рекомендуемое значение Jc — 4-12.

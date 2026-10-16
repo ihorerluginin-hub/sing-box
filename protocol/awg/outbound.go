@@ -86,6 +86,7 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 				netip.PrefixFrom(netip.IPv4Unspecified(), 0),
 				netip.PrefixFrom(netip.IPv6Unspecified(), 0),
 			},
+			PersistentKeepaliveInterval: options.PersistentKeepaliveInterval,
 		}},
 
 		// Обфускация AWG, единая на весь интерфейс.
