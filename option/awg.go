@@ -21,9 +21,7 @@ type AWGOutboundOptions struct {
 	PeerPublicKey string                           `json:"peer_public_key"`
 	PreSharedKey  string                           `json:"pre_shared_key,omitempty"`
 	MTU           uint32                           `json:"mtu,omitempty"`
-	Network       NetworkList                      `json:"network,omitempty"`
 	UDPTimeout    badoption.Duration               `json:"udp_timeout,omitempty"`
-	Workers       int                              `json:"workers,omitempty"`
 
 	// Мусорные пакеты, отправляются перед каждым хендшейком.
 	// По документации amneziawg-go менять их на сервере не нужно,

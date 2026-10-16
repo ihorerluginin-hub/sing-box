@@ -87,7 +87,6 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 				netip.PrefixFrom(netip.IPv6Unspecified(), 0),
 			},
 		}},
-		Workers: options.Workers,
 
 		// Обфускация AWG, единая на весь интерфейс.
 		JunkCount:               options.JunkCount,

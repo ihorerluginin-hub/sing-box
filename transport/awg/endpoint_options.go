@@ -31,7 +31,6 @@ type EndpointOptions struct {
 	ListenPort   uint16
 	ResolvePeer  func(domain string) (netip.Addr, error)
 	Peers        []PeerOptions
-	Workers      int
 
 	// AWG-specific, device-wide. Пустое значение означает «не задавать»,
 	// и соответствующая строка в UAPI просто не попадает в конфигурацию.
