@@ -53,9 +53,13 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 	endpointOptions := awgTransport.EndpointOptions{
 		Context: ctx,
 		Logger:  logger,
-		// На Android всегда системный интерфейс: исходящий сам поднимает
-		// tun, через который пойдёт весь трафик.
-		System: true,
+		// Пользовательский сетевой стек, а не системный интерфейс.
+		// Так же, как у WireGuard в этом приложении: NekoBox не
+		// передаёт system_interface, весь трафик идёт через стек
+		// sing-box. У amneziawg-go нет другого рабочего пути — сброс
+		// пакетов прямо в устройство снаружи невозможен, поля
+		// allowedips и queue неэкспортируемые.
+		System: false,
 		Dialer: outboundDialer,
 		CreateDialer: func(interfaceName string) N.Dialer {
 			return common.Must1(dialer.NewDefault(ctx, option.DialerOptions{

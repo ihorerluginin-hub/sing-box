@@ -4,10 +4,10 @@ package awg
 
 import "github.com/sagernet/sing-tun"
 
-func newStackDevice(options DeviceOptions) (Device, error) {
-	return nil, tun.ErrGVisorNotIncluded
-}
+// newSystemStackDevice отсутствует намеренно: вариант «настоящий TUN
+// плюс обработчик пакетов» у amneziawg-go не собирается, см. NewDevice
+// в device.go.
 
-func newSystemStackDevice(options DeviceOptions) (Device, error) {
+func newStackDevice(options DeviceOptions) (Device, error) {
 	return nil, tun.ErrGVisorNotIncluded
 }
